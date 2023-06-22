@@ -9,9 +9,9 @@ out vec4 fragColor;
 void main()
 {
 	vec4 color = texture(sTD2DInputs[0], vUV.st);
-	color *= smoothstep(uCrop.x - uSoft.x, uCrop.x + uSoft.x, vUV.s) 
-	* smoothstep(uCrop.y - uSoft.y, uCrop.y + uSoft.y, 1-vUV.s)
-	* smoothstep(uCrop.z - uSoft.z, uCrop.z + uSoft.z, vUV.t)
-	* smoothstep(uCrop.w - uSoft.w, uCrop.w + uSoft.w, 1-vUV.t);
+	color *= smoothstep(uCrop.x, uCrop.x + uSoft.x, vUV.s) 
+	* smoothstep(uCrop.y, uCrop.y + uSoft.y, 1-vUV.s)
+	* smoothstep(uCrop.z, uCrop.z + uSoft.z, vUV.t)
+	* smoothstep(uCrop.w, uCrop.w + uSoft.w, 1-vUV.t);
 	fragColor = TDOutputSwizzle(color);
 }
