@@ -1,5 +1,4 @@
-blendModeNames = ['over', 'cross', 'lighten', 'darken',  
-			'multiply', 'screen', 'overlay', 'add', 'subtract']
+blendModeNames = ['over', 'add', 'subtract', 'multiply', 'screen', 'overlay', 'lighten', 'darken']
 
 multiMixFrag = {}
 
@@ -48,16 +47,16 @@ vec4 over(vec4 base, vec4 blend, float opacity){
 	return mix(base, result, opacity);
 }
 ''','''
-vec4 lighten(vec4 base, vec4 blend, float opacity){	
-	//lighten
-	vec4 result = max(blend, base);
+vec4 add(vec4 base, vec4 blend, float opacity){	
+	//add
+	vec4 result = blend + base;
 	return mix(base, result, opacity);
 }
 ''','''
-vec4 darken(vec4 base, vec4 blend, float opacity){	
-	//darken
-	vec4 result = min(blend, base);
-	return mix(base, result, opacity);
+vec4 subtract(vec4 base, vec4 blend, float opacity){	
+	//subtract 
+	vec4 result = blend - base;
+	return mix(base, vec4(result.rgb, blend.a), opacity);
 }
 ''','''
 vec4 multiply(vec4 base, vec4 blend, float opacity){	
@@ -89,15 +88,15 @@ vec4 overlay(vec4 base, vec4 blend, float opacity){
 	return mix(base, result, opacity);
 }
 ''','''
-vec4 add(vec4 base, vec4 blend, float opacity){	
-	//add
-	vec4 result = blend + base;
+vec4 lighten(vec4 base, vec4 blend, float opacity){	
+	//lighten
+	vec4 result = max(blend, base);
 	return mix(base, result, opacity);
 }
 ''','''
-vec4 subtract(vec4 base, vec4 blend, float opacity){	
-	//subtract 
-	vec4 result = blend - base;
-	return mix(base, vec4(result.rgb, blend.a), opacity);
+vec4 darken(vec4 base, vec4 blend, float opacity){	
+	//darken
+	vec4 result = min(blend, base);
+	return mix(base, result, opacity);
 }
 ''']
