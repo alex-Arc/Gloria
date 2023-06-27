@@ -1,4 +1,4 @@
-blendModeNames = ['over', 'add', 'subtract', 'multiply', 'screen', 'overlay', 'lighten', 'darken']
+blendModeNames = ['over','add', 'subtract','multiply', 'screen', 'overlay', 'lighten', 'darken']
 
 multiMixFrag = {}
 

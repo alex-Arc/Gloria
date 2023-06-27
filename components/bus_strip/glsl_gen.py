@@ -1,6 +1,6 @@
 import multiMixTextData
 mixFrag = op('glslmulti1_pixel')
-numLayers = 2
+numLayers = 10
 
 frag = multiMixTextData.multiMixFrag
 mixBlend = frag['mixBlend']
@@ -13,7 +13,7 @@ blendModeIds = []
 for n in range(0, numLayers):
 	ID = str(n)
 	if n != 0: 
-		blendPar = getattr(op(op('layers')[n,0] + '/dim').par, 'Blend')
+		blendPar = getattr(op(op('layers')[n+1,0]).par, 'Blend')
 		mode = str(blendPar)
 		modeId = blendPar.menuIndex
 		line = frag['defineMode'].replace('_Index_', ID)
