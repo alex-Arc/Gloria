@@ -55,7 +55,7 @@ vec4 add(vec4 base, vec4 blend, float opacity){
 ''','''
 vec4 subtract(vec4 base, vec4 blend, float opacity){	
 	//subtract 
-	vec4 result = blend - base;
+	vec4 result = base - blend;
 	return mix(base, vec4(result.rgb, blend.a), opacity);
 }
 ''','''
